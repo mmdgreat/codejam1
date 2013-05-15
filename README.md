@@ -1,3 +1,3 @@
 codejam1
 ========
-First commit
+This is the solution for 2nd assignment. Please enable shortcode. MySql db username : codejam Password : codejam.
