@@ -1,3 +1,4 @@
+<? setlocale(LC_MONETARY, 'en_IN'); ?>
 <script type="text/javascript">
     $(document).ready(function(){
         $( "#accordion" ).accordion({
@@ -35,7 +36,7 @@
                     <table class='table'>
                         <? foreach($order['CartItem'] as $item): ?>
                             <tr>
-                                <td><?= $this->Html->image($item['Product']['product_image'], array('alt' =>$item['Product']['product_name'],'style'=>'height:50px;width:50px;')) ?></td>
+                                <td><?= $this->Html->image($item['Product']['product_image'], array('class'=>'img-circle','alt' =>$item['Product']['product_name'],'style'=>'height:60px;width:60px;')) ?></td>
                                 <td><?= $item['Product']['product_name'] ?></td>
                                 <td><?= money_format('%10.1n',$item['Product']['product_price']) ?></td>
                             </tr>
@@ -51,8 +52,8 @@
         <div class="well">
             <h3>Snapshot</h3>
             <ul>
-                <li>Total order on <b><?= $this->request->data['Order']['date'] ?></b> is Rs. <?= $total_order ?></li>
-                <li>Largest order placed by <?= $customer ?> for <?= $max_order ?></li>
+                <li>Total order on <b><?= $this->request->data['Order']['date'] ?></b> is <?= money_format('%10.1n',$total_order) ?></li>
+                <li>Largest order placed by <strong><?= $customer ?></strong> for <strong><?= money_format('%10.1n',$max_order) ?></strong></li>
             </ul>
         </div>
     <? endif; ?>

@@ -12,7 +12,7 @@
 <?php echo $this->Form->create('Order'); ?>
 	<fieldset>
 		<legend><?php echo __('Place an order'); ?></legend>
-        Select a customer :: <?php echo $this->Form->input('user_id',array('label'=>false)); ?>
+        Select a customer :: <?php echo $this->Form->input('user_id',array('label'=>false,'empty'=>'Select Customer')); ?>
         <table>
             <tr>
             

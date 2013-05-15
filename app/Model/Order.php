@@ -76,6 +76,7 @@ class Order extends AppModel {
 	);
     
     public function save_order($data){
+        $this->create();
         $this->Product = new Product();
         $products = $this->Product->find('all',array('conditions'=>array('Product.id'=>$data['Order']['products'])));
         $order_sum = 0;

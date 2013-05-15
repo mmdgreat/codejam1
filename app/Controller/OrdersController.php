@@ -39,8 +39,14 @@ class OrdersController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-			$this->Order->create();
-			if ($this->Order->save_order($this->request->data)) {
+            $data = $this->request->data;
+            if(empty($data['Order']['user_id'])){
+                $this->Session->setFlash(__('Please select customer.'));
+            }
+            elseif(empty($data['Order']['products'])){
+                $this->Session->setFlash(__('Please select products.'));
+            }
+			elseif($this->Order->save_order($data)) {
 				$this->Session->setFlash(__('The order has been saved'));
 				$this->redirect(array('action' => 'add'));
 			} else {
